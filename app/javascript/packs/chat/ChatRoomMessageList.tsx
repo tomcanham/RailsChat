@@ -4,6 +4,8 @@ import { ChatRoomMessage } from './ChatRoomMessage';
 import { chatRoomMessage } from './shared';
 
 const ChatRoomMessagesContainer = styled.div`
+  border: 1px solid black;
+
   .message-container:nth-child(even) > .message {
     background-color: cyan;
   }

@@ -6,14 +6,19 @@ const ChatRoomUsersListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   list-style-type: none;
+  border: 1px solid black;
 
   & > li.user {
     display: list-item;
     list-style-type: square;
+    font-weight: bold;
   };
 `;
 
 const ChatRoomUsersListHeaderContainer = styled.div`
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: larger;
 `;
 
 type ChatRoomUsersListArgs = {

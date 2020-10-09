@@ -35,10 +35,10 @@ export const ChatRoom: React.FC<chatRoomArgs> = ({
 }: chatRoomArgs) => {
   return (
     <ChatRoomContainer>
-      <ChatRoomChannelHeader>{roomName} -- {user}</ChatRoomChannelHeader>
+      <ChatRoomChannelHeader>{roomName}</ChatRoomChannelHeader>
       <ChatRoomMessagesAndUsersContainer>
         <ChatRoomMessageList messages={messages} />
-        <ChatRoomUsersList users={roomUsers} />
+        <ChatRoomUsersList user={user} users={roomUsers} />
       </ChatRoomMessagesAndUsersContainer>
       <ChatRoomMessageBar onSubmit={sendMessage} />
     </ChatRoomContainer>

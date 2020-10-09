@@ -42,6 +42,7 @@ describe('chatroom', () => {
       ],
       messages: [],
     }));
+    expect(container).toHaveTextContent('Tom #1');
     expect(container).toHaveTextContent('Tom #2');
   });
 

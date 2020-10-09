@@ -1,6 +1,11 @@
 {
   "name": "rails_chat",
   "private": true,
+  "scripts": {
+    "lint": "eslint app/javascript/**/*.ts[x]",
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
   "dependencies": {
     "@babel/preset-react": "^7.10.4",
     "@rails/actioncable": "^6.0.0",
@@ -14,18 +19,42 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "styled-components": "^5.2.0",
     "ts-loader": "^8.0.4",
     "turbolinks": "^5.2.0",
     "typescript": "^4.0.3"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
+    "@types/jest": "^26.0.14",
     "@types/webpack-env": "^1.15.3",
     "@typescript-eslint/eslint-plugin": "^4.2.0",
     "@typescript-eslint/parser": "^4.2.0",
     "eslint": "^7.9.0",
     "eslint-config-preact": "^1.1.1",
     "eslint-plugin-react": "^7.21.2",
+    "jest": "^26.5.2",
+    "ts-jest": "^26.4.1",
     "webpack-dev-server": "^3.11.0"
-  }
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.ts"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "types": "@testing-library/jest-dom"
 }

@@ -3,6 +3,7 @@ export type chatRoomMessage = {
   sender: string;
   message: string;
   received: Date;
+  mine?: boolean;
 };
 
 export type chatRoomUser = {

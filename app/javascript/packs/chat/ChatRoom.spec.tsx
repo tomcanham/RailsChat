@@ -16,7 +16,9 @@ const getChatRoom = ({
   users = ['Tom #1'],
   messages = [],
 }: getChatRoomArgs): React.ReactElement => {
-  return <ChatRoom user={user}
+  return <ChatRoom
+    consumer={null}
+    user={user}
     roomName={roomName}
     roomUsers={users.map(n => ({ name: n }))}
     // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/no-unused-vars

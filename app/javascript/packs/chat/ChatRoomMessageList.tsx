@@ -6,18 +6,20 @@ import { chatRoomMessage } from './shared';
 const ChatRoomMessagesContainer = styled.div`
   border: 1px solid black;
 
-  .message-container:nth-child(even) > .message {
-    background-color: cyan;
+  .message-container > .message.mine {
+    font-weight: bolder;
+    font-style: italic;
   }
   flex-grow: 1;
 `;
 
 type tChatRoomMessageListArgs = {
+  user: string;
   messages: chatRoomMessage[];
 };
 
-export const ChatRoomMessageList: React.FC<tChatRoomMessageListArgs> = ({ messages }: tChatRoomMessageListArgs) => {
-  const messageList = messages.map((m, idx) => <ChatRoomMessage payload={m} key={`msg-${idx}`} />);
+export const ChatRoomMessageList: React.FC<tChatRoomMessageListArgs> = ({ user, messages }: tChatRoomMessageListArgs) => {
+  const messageList = messages.map((m, idx) => <ChatRoomMessage payload={m} user={user} key={`msg-${idx}`} />);
 
   return (
     <ChatRoomMessagesContainer>

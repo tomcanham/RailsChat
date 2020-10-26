@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { consumer } from '@rails/actioncable';
 import { ChatRoomMessageBar } from './ChatRoomMessageBar';
 import { ChatRoomMessageList } from './ChatRoomMessageList';
 import { ChatRoomUsersList } from './ChatRoomUsersList';
@@ -24,6 +25,7 @@ type chatRoomArgs = {
   roomUsers: chatRoomUser[];
   sendMessage: (message: string) => void;
   messages: chatRoomMessage[];
+  consumer: consumer;
 }
 
 export const ChatRoom: React.FC<chatRoomArgs> = ({
@@ -32,12 +34,13 @@ export const ChatRoom: React.FC<chatRoomArgs> = ({
   roomUsers,
   sendMessage,
   messages,
+  consumer,
 }: chatRoomArgs) => {
   return (
     <ChatRoomContainer>
       <ChatRoomChannelHeader>{roomName}</ChatRoomChannelHeader>
       <ChatRoomMessagesAndUsersContainer>
-        <ChatRoomMessageList messages={messages} />
+        <ChatRoomMessageList user={user} messages={messages} />
         <ChatRoomUsersList user={user} users={roomUsers} />
       </ChatRoomMessagesAndUsersContainer>
       <ChatRoomMessageBar onSubmit={sendMessage} />

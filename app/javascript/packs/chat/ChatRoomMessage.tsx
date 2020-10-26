@@ -22,13 +22,15 @@ const ChatRoomMessageContainer = styled.div`
 
 type chatRoomMessageArgs = {
   payload: chatRoomMessage;
+  user: string;
 }
 
-export const ChatRoomMessage: React.FC<chatRoomMessageArgs> = ({ payload }: chatRoomMessageArgs) => {
+export const ChatRoomMessage: React.FC<chatRoomMessageArgs> = ({ payload, user }: chatRoomMessageArgs) => {
+  console.log('payload.sender:', payload.sender, 'user:', user);
   return (
     <ChatRoomMessageContainer className="message-container">
       <span className="sender">{payload.sender}</span>
-      <span className="message">{payload.message}</span>
+      <span className={`message ${payload.sender === user ? 'mine' : ''}`}>{payload.message}</span>
     </ChatRoomMessageContainer>
   );
 };

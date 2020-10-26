@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const ChatRoomMessageBarContainer = styled.input`
@@ -10,6 +10,15 @@ type chatRoomMessageBarArgs = {
 
 export const ChatRoomMessageBar: React.FC<chatRoomMessageBarArgs> = ({ onSubmit }: chatRoomMessageBarArgs) => {
   const [message, setMessage] = useState<string>('');
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    // if appropriate, force focus to the input field, note can't use optional chaining here!
+    if (message === '' && inputRef.current && !inputRef.current.hasFocus()) {
+      inputRef.current.focus();
+    }
+  });
 
   const onChange = (e) => {
     setMessage(e.target.value);

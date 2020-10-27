@@ -4,7 +4,7 @@ import { consumer } from '@rails/actioncable';
 import { ChatRoomMessageBar } from './ChatRoomMessageBar';
 import { ChatRoomMessageList } from './ChatRoomMessageList';
 import { ChatRoomUsersList } from './ChatRoomUsersList';
-import { chatRoomMessage, chatRoomUser } from './shared';
+import { chatRoomMessage } from './shared';
 
 const ChatRoomContainer = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const ChatRoomMessagesAndUsersContainer = styled.div`
 type chatRoomArgs = {
   roomName: string;
   user: string;
-  roomUsers: chatRoomUser[];
+  roomUsers: string[];
   sendMessage: (message: string) => void;
   messages: chatRoomMessage[];
   consumer: consumer;

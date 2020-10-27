@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { chatRoomUser } from './shared';
 
 const ChatRoomUsersListContainer = styled.ul`
   display: flex;
@@ -23,7 +22,7 @@ const ChatRoomUsersListHeaderContainer = styled.div`
 
 type ChatRoomUsersListArgs = {
   user: string,
-  users: chatRoomUser[];
+  users: string[];
 }
 
 export const ChatRoomUsersList: React.FC<ChatRoomUsersListArgs> = ({
@@ -32,6 +31,6 @@ export const ChatRoomUsersList: React.FC<ChatRoomUsersListArgs> = ({
 }: ChatRoomUsersListArgs) => {
   return <ChatRoomUsersListContainer>
     <ChatRoomUsersListHeaderContainer>Users</ChatRoomUsersListHeaderContainer>
-    {users.map((u, idx) => <li key={`user-${idx}`} className={u.name === user ? 'user' : ''}>{u.name}</li>)}
+    {users.map((name, idx) => <li key={`user-${idx}`} className={name === user ? 'user' : ''}>{name}</li>)}
   </ChatRoomUsersListContainer>
 }

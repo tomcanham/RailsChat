@@ -6,13 +6,12 @@ export type chatRoomMessage = {
   mine?: boolean;
 };
 
-export type chatRoomUser = {
-  name: string;
-}
-
 export type messagePayload = {
-  sent_by: string;
-  body: string;
+  type: string;
+  sent_by?: string;
+  user?: string;
+  body?: string;
+  users: string[];
 }
 
 export type channel = {

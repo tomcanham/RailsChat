@@ -20,7 +20,7 @@ const getChatRoom = ({
     consumer={null}
     user={user}
     roomName={roomName}
-    roomUsers={users.map(n => ({ name: n }))}
+    roomUsers={users}
     // eslint-disable-next-line @typescript-eslint/no-empty-function,@typescript-eslint/no-unused-vars
     sendMessage={(message: string) => {}}
     messages={messages}

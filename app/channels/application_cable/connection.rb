@@ -3,13 +3,22 @@ module ApplicationCable
     identified_by :current_user
 
     def connect
-      print "Here we are!!"
       self.current_user = find_verified_user
+    end
+
+    def disconnect
+      current_user.rooms.delete_all
     end
 
     private
 
+    # this checks whether a user is authenticated with devise
     def find_verified_user
+      if verified_user = env['warden'].user
+        verified_user
+      else
+        reject_unauthorized_connection
+      end
     end
   end
 end
